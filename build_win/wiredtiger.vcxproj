@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6FC8549D-7E18-49D3-B1ED-CC17AB042E5A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>wiredtiger</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <EmbedManifest>false</EmbedManifest>
+    <TargetName>wt</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <EmbedManifest>false</EmbedManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>.;..;..\src\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib</AdditionalDependencies>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;HAVE_BUILTIN_EXTENSION_LZ4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..;..\src\include;..\lz4</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <OutputFile>..\wt$(TargetExt)</OutputFile>
+      <AdditionalDependencies>kernel32.lib</AdditionalDependencies>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ext\compressors\lz4\lz4_compress.c" />
+    <ClCompile Include="..\lz4\lz4.c" />
+    <ClCompile Include="..\src\async\async_api.c" />
+    <ClCompile Include="..\src\async\async_op.c" />
+    <ClCompile Include="..\src\async\async_worker.c" />
+    <ClCompile Include="..\src\block\block_addr.c" />
+    <ClCompile Include="..\src\block\block_ckpt.c" />
+    <ClCompile Include="..\src\block\block_compact.c" />
+    <ClCompile Include="..\src\block\block_ext.c" />
+    <ClCompile Include="..\src\block\block_map.c" />
+    <ClCompile Include="..\src\block\block_mgr.c" />
+    <ClCompile Include="..\src\block\block_open.c" />
+    <ClCompile Include="..\src\block\block_read.c" />
+    <ClCompile Include="..\src\block\block_session.c" />
+    <ClCompile Include="..\src\block\block_slvg.c" />
+    <ClCompile Include="..\src\block\block_vrfy.c" />
+    <ClCompile Include="..\src\block\block_write.c" />
+    <ClCompile Include="..\src\bloom\bloom.c" />
+    <ClCompile Include="..\src\btree\bt_compact.c" />
+    <ClCompile Include="..\src\btree\bt_curnext.c" />
+    <ClCompile Include="..\src\btree\bt_curprev.c" />
+    <ClCompile Include="..\src\btree\bt_cursor.c" />
+    <ClCompile Include="..\src\btree\bt_debug.c" />
+    <ClCompile Include="..\src\btree\bt_delete.c" />
+    <ClCompile Include="..\src\btree\bt_discard.c" />
+    <ClCompile Include="..\src\btree\bt_handle.c" />
+    <ClCompile Include="..\src\btree\bt_huffman.c" />
+    <ClCompile Include="..\src\btree\bt_io.c" />
+    <ClCompile Include="..\src\btree\bt_misc.c" />
+    <ClCompile Include="..\src\btree\bt_ovfl.c" />
+    <ClCompile Include="..\src\btree\bt_page.c" />
+    <ClCompile Include="..\src\btree\bt_read.c" />
+    <ClCompile Include="..\src\btree\bt_rebalance.c" />
+    <ClCompile Include="..\src\btree\bt_ret.c" />
+    <ClCompile Include="..\src\btree\bt_slvg.c" />
+    <ClCompile Include="..\src\btree\bt_split.c" />
+    <ClCompile Include="..\src\btree\bt_stat.c" />
+    <ClCompile Include="..\src\btree\bt_sync.c" />
+    <ClCompile Include="..\src\btree\bt_upgrade.c" />
+    <ClCompile Include="..\src\btree\bt_vrfy.c" />
+    <ClCompile Include="..\src\btree\bt_vrfy_dsk.c" />
+    <ClCompile Include="..\src\btree\bt_walk.c" />
+    <ClCompile Include="..\src\btree\col_modify.c" />
+    <ClCompile Include="..\src\btree\col_srch.c" />
+    <ClCompile Include="..\src\btree\row_key.c" />
+    <ClCompile Include="..\src\btree\row_modify.c" />
+    <ClCompile Include="..\src\btree\row_srch.c" />
+    <ClCompile Include="..\src\cache\cache_las.c" />
+    <ClCompile Include="..\src\checksum\software\checksum.c" />
+    <ClCompile Include="..\src\checksum\x86\crc32-x86.c" />
+    <ClCompile Include="..\src\config\config.c" />
+    <ClCompile Include="..\src\config\config_api.c" />
+    <ClCompile Include="..\src\config\config_check.c" />
+    <ClCompile Include="..\src\config\config_collapse.c" />
+    <ClCompile Include="..\src\config\config_def.c" />
+    <ClCompile Include="..\src\config\config_ext.c" />
+    <ClCompile Include="..\src\config\config_upgrade.c" />
+    <ClCompile Include="..\src\conn\api_strerror.c" />
+    <ClCompile Include="..\src\conn\api_version.c" />
+    <ClCompile Include="..\src\conn\conn_api.c" />
+    <ClCompile Include="..\src\conn\conn_cache.c" />
+    <ClCompile Include="..\src\conn\conn_cache_pool.c" />
+    <ClCompile Include="..\src\conn\conn_ckpt.c" />
+    <ClCompile Include="..\src\conn\conn_dhandle.c" />
+    <ClCompile Include="..\src\conn\conn_handle.c" />
+    <ClCompile Include="..\src\conn\conn_log.c" />
+    <ClCompile Include="..\src\conn\conn_open.c" />
+    <ClCompile Include="..\src\conn\conn_stat.c" />
+    <ClCompile Include="..\src\conn\conn_sweep.c" />
+    <ClCompile Include="..\src\cursor\cur_backup.c" />
+    <ClCompile Include="..\src\cursor\cur_bulk.c" />
+    <ClCompile Include="..\src\cursor\cur_config.c" />
+    <ClCompile Include="..\src\cursor\cur_ds.c" />
+    <ClCompile Include="..\src\cursor\cur_dump.c" />
+    <ClCompile Include="..\src\cursor\cur_file.c" />
+    <ClCompile Include="..\src\cursor\cur_index.c" />
+    <ClCompile Include="..\src\cursor\cur_join.c" />
+    <ClCompile Include="..\src\cursor\cur_json.c" />
+    <ClCompile Include="..\src\cursor\cur_log.c" />
+    <ClCompile Include="..\src\cursor\cur_metadata.c" />
+    <ClCompile Include="..\src\cursor\cur_stat.c" />
+    <ClCompile Include="..\src\cursor\cur_std.c" />
+    <ClCompile Include="..\src\cursor\cur_table.c" />
+    <ClCompile Include="..\src\evict\evict_file.c" />
+    <ClCompile Include="..\src\evict\evict_lru.c" />
+    <ClCompile Include="..\src\evict\evict_page.c" />
+    <ClCompile Include="..\src\evict\evict_stat.c" />
+    <ClCompile Include="..\src\log\log.c" />
+    <ClCompile Include="..\src\log\log_auto.c" />
+    <ClCompile Include="..\src\log\log_slot.c" />
+    <ClCompile Include="..\src\lsm\lsm_cursor.c" />
+    <ClCompile Include="..\src\lsm\lsm_cursor_bulk.c" />
+    <ClCompile Include="..\src\lsm\lsm_manager.c" />
+    <ClCompile Include="..\src\lsm\lsm_merge.c" />
+    <ClCompile Include="..\src\lsm\lsm_meta.c" />
+    <ClCompile Include="..\src\lsm\lsm_stat.c" />
+    <ClCompile Include="..\src\lsm\lsm_tree.c" />
+    <ClCompile Include="..\src\lsm\lsm_worker.c" />
+    <ClCompile Include="..\src\lsm\lsm_work_unit.c" />
+    <ClCompile Include="..\src\meta\meta_apply.c" />
+    <ClCompile Include="..\src\meta\meta_ckpt.c" />
+    <ClCompile Include="..\src\meta\meta_ext.c" />
+    <ClCompile Include="..\src\meta\meta_table.c" />
+    <ClCompile Include="..\src\meta\meta_track.c" />
+    <ClCompile Include="..\src\meta\meta_turtle.c" />
+    <ClCompile Include="..\src\os_common\filename.c" />
+    <ClCompile Include="..\src\os_common\os_abort.c" />
+    <ClCompile Include="..\src\os_common\os_alloc.c" />
+    <ClCompile Include="..\src\os_common\os_errno.c" />
+    <ClCompile Include="..\src\os_common\os_fhandle.c" />
+    <ClCompile Include="..\src\os_common\os_fstream.c" />
+    <ClCompile Include="..\src\os_common\os_fstream_stdio.c" />
+    <ClCompile Include="..\src\os_common\os_fs_inmemory.c" />
+    <ClCompile Include="..\src\os_common\os_getopt.c" />
+    <ClCompile Include="..\src\os_common\os_strtouq.c" />
+    <ClCompile Include="..\src\os_win\os_dir.c" />
+    <ClCompile Include="..\src\os_win\os_dlopen.c" />
+    <ClCompile Include="..\src\os_win\os_fs.c" />
+    <ClCompile Include="..\src\os_win\os_getenv.c" />
+    <ClCompile Include="..\src\os_win\os_map.c" />
+    <ClCompile Include="..\src\os_win\os_mtx_cond.c" />
+    <ClCompile Include="..\src\os_win\os_once.c" />
+    <ClCompile Include="..\src\os_win\os_pagesize.c" />
+    <ClCompile Include="..\src\os_win\os_path.c" />
+    <ClCompile Include="..\src\os_win\os_priv.c" />
+    <ClCompile Include="..\src\os_win\os_setvbuf.c" />
+    <ClCompile Include="..\src\os_win\os_sleep.c" />
+    <ClCompile Include="..\src\os_win\os_snprintf.c" />
+    <ClCompile Include="..\src\os_win\os_thread.c" />
+    <ClCompile Include="..\src\os_win\os_time.c" />
+    <ClCompile Include="..\src\os_win\os_utf8.c" />
+    <ClCompile Include="..\src\os_win\os_vsnprintf.c" />
+    <ClCompile Include="..\src\os_win\os_winerr.c" />
+    <ClCompile Include="..\src\os_win\os_yield.c" />
+    <ClCompile Include="..\src\packing\pack_api.c" />
+    <ClCompile Include="..\src\packing\pack_impl.c" />
+    <ClCompile Include="..\src\packing\pack_stream.c" />
+    <ClCompile Include="..\src\reconcile\rec_track.c" />
+    <ClCompile Include="..\src\reconcile\rec_write.c" />
+    <ClCompile Include="..\src\schema\schema_alter.c" />
+    <ClCompile Include="..\src\schema\schema_create.c" />
+    <ClCompile Include="..\src\schema\schema_drop.c" />
+    <ClCompile Include="..\src\schema\schema_list.c" />
+    <ClCompile Include="..\src\schema\schema_open.c" />
+    <ClCompile Include="..\src\schema\schema_plan.c" />
+    <ClCompile Include="..\src\schema\schema_project.c" />
+    <ClCompile Include="..\src\schema\schema_rename.c" />
+    <ClCompile Include="..\src\schema\schema_stat.c" />
+    <ClCompile Include="..\src\schema\schema_truncate.c" />
+    <ClCompile Include="..\src\schema\schema_util.c" />
+    <ClCompile Include="..\src\schema\schema_worker.c" />
+    <ClCompile Include="..\src\session\session_api.c" />
+    <ClCompile Include="..\src\session\session_compact.c" />
+    <ClCompile Include="..\src\session\session_dhandle.c" />
+    <ClCompile Include="..\src\session\session_salvage.c" />
+    <ClCompile Include="..\src\support\cond_auto.c" />
+    <ClCompile Include="..\src\support\crypto.c" />
+    <ClCompile Include="..\src\support\err.c" />
+    <ClCompile Include="..\src\support\global.c" />
+    <ClCompile Include="..\src\support\hash_city.c" />
+    <ClCompile Include="..\src\support\hash_fnv.c" />
+    <ClCompile Include="..\src\support\hazard.c" />
+    <ClCompile Include="..\src\support\hex.c" />
+    <ClCompile Include="..\src\support\huffman.c" />
+    <ClCompile Include="..\src\support\mtx_rw.c" />
+    <ClCompile Include="..\src\support\pow.c" />
+    <ClCompile Include="..\src\support\rand.c" />
+    <ClCompile Include="..\src\support\scratch.c" />
+    <ClCompile Include="..\src\support\stat.c" />
+    <ClCompile Include="..\src\support\thread_group.c" />
+    <ClCompile Include="..\src\txn\txn.c" />
+    <ClCompile Include="..\src\txn\txn_ckpt.c" />
+    <ClCompile Include="..\src\txn\txn_ext.c" />
+    <ClCompile Include="..\src\txn\txn_log.c" />
+    <ClCompile Include="..\src\txn\txn_nsnap.c" />
+    <ClCompile Include="..\src\txn\txn_recover.c" />
+    <ClCompile Include="..\src\utilities\util_alter.c" />
+    <ClCompile Include="..\src\utilities\util_backup.c" />
+    <ClCompile Include="..\src\utilities\util_compact.c" />
+    <ClCompile Include="..\src\utilities\util_cpyright.c" />
+    <ClCompile Include="..\src\utilities\util_create.c" />
+    <ClCompile Include="..\src\utilities\util_drop.c" />
+    <ClCompile Include="..\src\utilities\util_dump.c" />
+    <ClCompile Include="..\src\utilities\util_list.c" />
+    <ClCompile Include="..\src\utilities\util_load.c" />
+    <ClCompile Include="..\src\utilities\util_loadtext.c" />
+    <ClCompile Include="..\src\utilities\util_load_json.c" />
+    <ClCompile Include="..\src\utilities\util_main.c" />
+    <ClCompile Include="..\src\utilities\util_misc.c" />
+    <ClCompile Include="..\src\utilities\util_printlog.c" />
+    <ClCompile Include="..\src\utilities\util_read.c" />
+    <ClCompile Include="..\src\utilities\util_rebalance.c" />
+    <ClCompile Include="..\src\utilities\util_rename.c" />
+    <ClCompile Include="..\src\utilities\util_salvage.c" />
+    <ClCompile Include="..\src\utilities\util_stat.c" />
+    <ClCompile Include="..\src\utilities\util_upgrade.c" />
+    <ClCompile Include="..\src\utilities\util_verbose.c" />
+    <ClCompile Include="..\src\utilities\util_verify.c" />
+    <ClCompile Include="..\src\utilities\util_write.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lz4\lz4.h" />
+    <ClInclude Include="..\src\include\api.h" />
+    <ClInclude Include="..\src\include\async.h" />
+    <ClInclude Include="..\src\include\block.h" />
+    <ClInclude Include="..\src\include\bloom.h" />
+    <ClInclude Include="..\src\include\btmem.h" />
+    <ClInclude Include="..\src\include\btree.h" />
+    <ClInclude Include="..\src\include\cache.h" />
+    <ClInclude Include="..\src\include\compact.h" />
+    <ClInclude Include="..\src\include\config.h" />
+    <ClInclude Include="..\src\include\connection.h" />
+    <ClInclude Include="..\src\include\cursor.h" />
+    <ClInclude Include="..\src\include\dhandle.h" />
+    <ClInclude Include="..\src\include\dlh.h" />
+    <ClInclude Include="..\src\include\error.h" />
+    <ClInclude Include="..\src\include\extern.h" />
+    <ClInclude Include="..\src\include\extern_posix.h" />
+    <ClInclude Include="..\src\include\extern_win.h" />
+    <ClInclude Include="..\src\include\flags.h" />
+    <ClInclude Include="..\src\include\gcc.h" />
+    <ClInclude Include="..\src\include\hardware.h" />
+    <ClInclude Include="..\src\include\lint.h" />
+    <ClInclude Include="..\src\include\log.h" />
+    <ClInclude Include="..\src\include\lsm.h" />
+    <ClInclude Include="..\src\include\meta.h" />
+    <ClInclude Include="..\src\include\misc.h" />
+    <ClInclude Include="..\src\include\msvc.h" />
+    <ClInclude Include="..\src\include\mutex.h" />
+    <ClInclude Include="..\src\include\os.h" />
+    <ClInclude Include="..\src\include\os_windows.h" />
+    <ClInclude Include="..\src\include\posix.h" />
+    <ClInclude Include="..\src\include\queue.h" />
+    <ClInclude Include="..\src\include\schema.h" />
+    <ClInclude Include="..\src\include\session.h" />
+    <ClInclude Include="..\src\include\stat.h" />
+    <ClInclude Include="..\src\include\swap.h" />
+    <ClInclude Include="..\src\include\thread_group.h" />
+    <ClInclude Include="..\src\include\txn.h" />
+    <ClInclude Include="..\src\include\verify_build.h" />
+    <ClInclude Include="..\src\include\wiredtiger_ext.h" />
+    <ClInclude Include="..\src\include\wt_internal.h" />
+    <ClInclude Include="..\wiredtiger.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

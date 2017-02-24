@@ -16,6 +16,8 @@
 *.obj
 *.pdb
 *.pyc
+*.iobj
+*.ipdb
 .dirstamp
 .sconf_temp
 .sconsign.dblite
@@ -35,7 +37,6 @@
 /configure.ac
 /libtool
 /stamp-h1
-/wiredtiger.h
 /wiredtiger.pc
 /wiredtiger_config.h
 /wiredtiger_ext.h
@@ -51,6 +52,12 @@ build_posix/wiredtiger.pc
 build_posix/wiredtiger_config.h
 build_posix/wiredtiger_ext.h
 build_posix/wt
+build_win/.vs/
+build_win/x64/
+build_win/*.db
+build_win/*.opendb
+build_win/*.suo
+build_win/*.user
 tags
 
 # Documentation
