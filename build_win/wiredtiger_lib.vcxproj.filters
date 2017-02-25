@@ -67,9 +67,6 @@
     <Filter Include="include">
       <UniqueIdentifier>{187bd41a-8364-4f17-ab92-0b96f0098cfb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utilities">
-      <UniqueIdentifier>{4d4f4377-22b7-4b57-a797-7313389c8aa9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ext">
       <UniqueIdentifier>{4b4db8fa-c6b7-42d5-90cc-0bf6a4521432}</UniqueIdentifier>
     </Filter>
@@ -599,75 +596,6 @@
     </ClCompile>
     <ClCompile Include="..\src\txn\txn_recover.c">
       <Filter>txn</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_alter.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_backup.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_compact.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_cpyright.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_create.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_drop.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_dump.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_list.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_load.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_load_json.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_loadtext.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_main.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_misc.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_printlog.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_read.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_rebalance.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_rename.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_salvage.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_stat.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_upgrade.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_verbose.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_verify.c">
-      <Filter>utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\utilities\util_write.c">
-      <Filter>utilities</Filter>
     </ClCompile>
     <ClCompile Include="..\ext\compressors\lz4\lz4_compress.c">
       <Filter>ext</Filter>

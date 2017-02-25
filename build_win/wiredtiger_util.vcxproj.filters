@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="utilities">
+      <UniqueIdentifier>{4d4f4377-22b7-4b57-a797-7313389c8aa9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\utilities\util_alter.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_backup.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_compact.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_cpyright.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_create.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_drop.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_dump.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_list.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_load.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_load_json.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_loadtext.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_main.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_misc.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_printlog.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_read.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_rebalance.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_rename.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_salvage.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_stat.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_upgrade.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_verbose.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_verify.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\util_write.c">
+      <Filter>utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\wiredtiger.h" />
+  </ItemGroup>
+</Project>
