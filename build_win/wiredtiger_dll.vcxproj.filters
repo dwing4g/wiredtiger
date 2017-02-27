@@ -2,11 +2,24 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\wiredtiger.h" />
+    <ClInclude Include="..\jni\jni.h">
+      <Filter>jni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jni\win32\jni_md.h">
+      <Filter>jni</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="wiredtiger.def" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\wt_lib.lib" />
+    <Filter Include="jni">
+      <UniqueIdentifier>{b734fd3b-28d0-47d9-83e2-d971e7d81715}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\jni\jni.cpp">
+      <Filter>jni</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
