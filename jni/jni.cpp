@@ -30,14 +30,12 @@ extern "C" JNIEXPORT jlong JNICALL Java_jane_core_StorageWtDB_wiredtiger_1open
 extern "C" JNIEXPORT void JNICALL Java_jane_core_StorageWtDB_wiredtiger_1close
 	(JNIEnv* jenv, jclass jcls, jlong handle)
 {
-	if(handle)
-	{
-		WT_CONNECTION* wc = (WT_CONNECTION*)handle;
-		wc->close(wc, 0);
-	}
+	if(!handle) return;
+	WT_CONNECTION* wc = (WT_CONNECTION*)handle;
+	wc->close(wc, 0);
 }
 
-// public native static long wiredtiger_open_session(jlong handle, String option);
+// public native static long wiredtiger_open_session(long handle, String option);
 extern "C" JNIEXPORT jlong JNICALL Java_jane_core_StorageWtDB_wiredtiger_1open_1session
 (JNIEnv* jenv, jclass jcls, jlong handle, jstring option)
 {
@@ -51,7 +49,27 @@ extern "C" JNIEXPORT jlong JNICALL Java_jane_core_StorageWtDB_wiredtiger_1open_1
 	return (jlong)ws;
 }
 
-// public native static long wiredtiger_open_cursor(jlong session, String option, String config);
+// public native static boolean wiredtiger_open_table(long session, String name, String option);
+extern "C" JNIEXPORT jboolean JNICALL Java_jane_core_StorageWtDB_wiredtiger_1open_1table
+(JNIEnv* jenv, jclass jcls, jlong session, jstring name, jstring option)
+{
+	if(!session || !name) return JNI_FALSE;
+	const char* nameptr = jenv->GetStringUTFChars(name, 0);
+	if(!nameptr) return JNI_FALSE;
+	const char* optptr = (option ? jenv->GetStringUTFChars(option, 0) : 0);
+	if(option && !optptr)
+	{
+		jenv->ReleaseStringUTFChars(name, nameptr);
+		return JNI_FALSE;
+	}
+	WT_SESSION* ws = (WT_SESSION*)session;
+	int r = ws->create(ws, nameptr, optptr);
+	if(optptr) jenv->ReleaseStringUTFChars(option, optptr);
+	jenv->ReleaseStringUTFChars(name, nameptr);
+	return r ? JNI_FALSE : JNI_TRUE;
+}
+
+// public native static long wiredtiger_open_cursor(long session, String option, String config);
 extern "C" JNIEXPORT jlong JNICALL Java_jane_core_StorageWtDB_wiredtiger_1open_1cursor
 (JNIEnv* jenv, jclass jcls, jlong session, jstring option, jstring config)
 {
@@ -61,7 +79,7 @@ extern "C" JNIEXPORT jlong JNICALL Java_jane_core_StorageWtDB_wiredtiger_1open_1
 	const char* cfgptr = (config ? jenv->GetStringUTFChars(config, 0) : 0);
 	if(config && !cfgptr)
 	{
-		jenv->ReleaseStringUTFChars(option, optptr);
+		if(optptr) jenv->ReleaseStringUTFChars(option, optptr);
 		return 0;
 	}
 	WT_SESSION* ws = (WT_SESSION*)session;
@@ -72,25 +90,26 @@ extern "C" JNIEXPORT jlong JNICALL Java_jane_core_StorageWtDB_wiredtiger_1open_1
 	return (jlong)wc;
 }
 
-// public native static byte[] wiredtiger_get(long session, byte[] key, int keylen); // return null for not found
+// public native static byte[] wiredtiger_get(long cursor, byte[] key, int keylen); // return null for not found
 extern "C" JNIEXPORT jbyteArray JNICALL Java_jane_core_StorageWtDB_wiredtiger_1get
 	(JNIEnv* jenv, jclass jcls, jlong cursor, jbyteArray key, jint keylen)
 {
-	WT_CURSOR* wc = (WT_CURSOR*)cursor;
-	if(!wc || !key) return 0;
+	if(!cursor || !key) return 0;
 	jsize m = jenv->GetArrayLength(key);
 	if(keylen > m) keylen = m;
-	if(keylen <= 0) return 0;
+	if(keylen < 0) keylen = 0;
 	jbyte* keyptr = jenv->GetByteArrayElements(key, 0);
 	if(!keyptr) return 0;
 	WT_ITEM wi;
 	wi.data = keyptr;
 	wi.size = keylen;
+	WT_CURSOR* wc = (WT_CURSOR*)cursor;
 	wc->set_key(wc, &wi);
 	int r = wc->search(wc);
 	jenv->ReleaseByteArrayElements(key, keyptr, JNI_ABORT);
 	if(r) return 0;
-	wc->get_value(wc, &wi);
+	r = wc->get_value(wc, &wi);
+	if(r) return 0;
 	jsize vallen = wi.size;
 	jbyteArray val = jenv->NewByteArray(vallen);
 	jenv->SetByteArrayRegion(val, 0, vallen, (const jbyte*)wi.data);
@@ -278,7 +297,7 @@ extern "C" JNIEXPORT jlong JNICALL Java_jane_core_StorageWtDB_wiredtiger_1backup
 	// if(!datetimeptr) return -5;
 	// std::string datetimestr(datetimeptr);
 	// jenv->ReleaseStringUTFChars(datetime, datetimeptr);
-	// 
+	//
 	// jlong n = 0;
 	// std::vector<std::string> files;
 	// DBImpl* dbi = 0;
