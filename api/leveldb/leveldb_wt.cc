@@ -28,7 +28,15 @@
 #include "leveldb_wt.h"
 #include <errno.h>
 #include <sys/stat.h>
+#ifdef _MSC_VER
+#include <io.h>
+#include <direct.h>
+#define F_OK 0
+#define access _access
+#define mkdir(a,b) _mkdir(a)
+#else
 #include <unistd.h>
+#endif
 #include <sstream>
 
 #if HAVE_BASHOLEVELDB
